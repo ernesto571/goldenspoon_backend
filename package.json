@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "seed:menu": "node seed/index.js"
+    "seed:menu": "node seed/index.js",
+    "start": "node src/server.js"
+
   },
   "type": "module",
   "author": "",
