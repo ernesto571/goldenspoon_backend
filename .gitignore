@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 
 .env
+public
+public/images/
+public/uploads/
+public/**/*.png
+public/**/*.jpg
+
