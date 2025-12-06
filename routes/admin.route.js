@@ -10,6 +10,7 @@ import {
 } from "../controllers/admin.menu.controller.js";
 import { requireAdmin } from "../middlewares/admin.middleware.js";
 import { requireLogin } from "../middlewares/auth.middleware.js"; // Import your existing middleware
+import { checkAdmin } from "../controllers/admin_auth.controller.js";
 
 const router = express.Router();
 
@@ -18,9 +19,7 @@ const router = express.Router();
 // router.use();
 
 // All routes below are now protected by both middlewares
-router.get("/check", (req, res) => {
-  res.json({ success: true, data: { isAdmin: true } });
-});
+router.get("/check", requireLogin,  checkAdmin);
 
 router.get("/",requireLogin, requireAdmin, getAllMenus);
 router.get("/:id", getMeal);
