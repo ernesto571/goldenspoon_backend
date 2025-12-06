@@ -3,10 +3,10 @@ import getUserFromClerk from "../lib/getUserFromClerk.js";
 
 export const checkAdmin = async (req, res) => {
   try {
-    const { clerk_id } = await getUserFromClerk(req);
+    const { user_id } = await getUserFromClerk(req);
 
     const user = await sql`
-      SELECT role FROM users WHERE clerk_id = ${clerk_id}
+      SELECT role FROM users WHERE clerk_id = ${user_id}
     `;
 
     if (!user || user.length === 0) {
